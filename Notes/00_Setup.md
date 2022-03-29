@@ -86,6 +86,9 @@ exercises.  Feel free to look at this if you need a hint.  To get the
 most out of the course however, you should try to create your own
 solutions first.
 
+## In case of problems with the Conda environment
+We noticed you're using a conda environment. If you are experiencing issues with this environment in the integrated terminal, we recommend that you let the Python extension change "terminal.integrated.inheritEnv" to false in your user settings.
+
 [Contents](Contents.md) \| [Next (1 Introduction to Python)](01_Introduction/00_Overview.md)
 
 
