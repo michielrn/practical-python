@@ -104,7 +104,7 @@ while principal > 0:
     principal = principal - payment
     total_paid = total_paid + payment
     months = months + 1
-    print(months, "\t", round(total_paid,2), "\t", round(principal,2))
+    print(f"Month: {months}\tTotal paid: {round(total_paid,2)}\tRemaining principal: {round(principal,2)}")
 
 total_paid = round(total_paid,2)
 print('Total paid:', total_paid)
@@ -112,3 +112,6 @@ print('Number of months:', months)
 
 # Exercise 1.11: Bonus
 # While you’re at it, fix the program to correct for the overpayment that occurs in the last month.
+
+# Modify the mortgage.py program from Exercise 1.10 to create its 
+# output using f-strings. Try to make it so that output is nicely aligned.
