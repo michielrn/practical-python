@@ -23,21 +23,22 @@
 # and returns the total cost of the portfolio as a float.
 
 
-
+import csv
 def portfolio_cost(filename):
 
     total_cost = 0.0
     with open(filename, 'rt') as f:
-        next(f)
+        rows = csv.reader(f)
+        headers = next(rows)
         ln=2
-        for line in f:
-            purchase = line.split(',')
+        for row in rows:
             try:
-                total_cost = total_cost + int(purchase[1]) * float(purchase[2])
+                total_cost = total_cost + int(row[1]) * float(row[2])
             except ValueError:
                 print('Missing data, ignoring line', ln)
             ln +=1
+    #f.close()        
     return total_cost
 
-cost = portfolio_cost('Data/missing.csv')
+cost = portfolio_cost('Data/portfolio.csv')
 print('Total cost:', cost)
