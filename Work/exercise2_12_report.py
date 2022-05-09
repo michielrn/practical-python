@@ -17,6 +17,7 @@ def read_portfolio(filename):
     '''
     Read a portfolio from a file into a list of tuples
     '''
+    print('\n\nReading portfolio...')
     portfolio = []
     with open(filename, 'rt') as f:
         rows = csv.reader(f)
@@ -51,6 +52,7 @@ def read_prices(filename):
     The file has no headers
     structured 'name', price [str, float]
     '''
+    print('\n\nReading prices..')
     prices_ = {}
     with open(filename, 'rt') as f:
         rows = csv.reader(f)
