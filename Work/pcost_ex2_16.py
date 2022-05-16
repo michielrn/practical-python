@@ -1,7 +1,6 @@
 # pcost.py
 #
 
-
 import sys
 import csv
 
@@ -13,13 +12,16 @@ def portfolio_cost(filename):
     with open(filename, 'rt') as f:
         rows = csv.reader(f)
         headers = next(rows)
-        ln=2
-        for row in rows:
+        
+        for rowno, row in enumerate(rows, start = 1):
+            record = dict(zip(headers, row))
             try:
-                total_cost = total_cost + int(row[1]) * float(row[2])
+                nshares = int(record['shares'])
+                price = float(record['price'])
+                total_cost += nshares * price
             except ValueError:
-                print('Missing data, ignoring line', ln)
-            ln +=1
+                print(f'Bad data in row {rowno}, ignoring line {row}')
+            
     return total_cost
 
 # Check if the program is called with an extra argument 
@@ -27,7 +29,7 @@ def portfolio_cost(filename):
 if len(sys.argv) == 2:
     filename = sys.argv[1]
 else:
-    filename = 'Data/portfolio.csv'
+    filename = 'Data/portfoliodate.csv'
 
 cost = portfolio_cost(filename)
 print('Total cost:', cost)
